@@ -50,7 +50,7 @@ const Footer: React.FC = () => {
           
           {/* Copyright text */}
           <div className="text-xs sm:text-sm mt-2 sm:mt-0">
-            © Copyright 2025, All Rights Reserved
+            © Copyright 2025, All Rights Reserved.
           </div>
         </div>
       </div>
