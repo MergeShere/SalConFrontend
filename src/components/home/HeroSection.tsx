@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react";
 import Button from "../shared/Button";
 
 function HeroSection() {
@@ -14,7 +15,12 @@ function HeroSection() {
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
           </p>
 
-          <Button text="get started"/>
+          <Button
+        text="Get Started"
+         icon={<ArrowRight className="text-white" size={16} />}
+        iconPosition="right"
+       onClick={() => console.log("Button clicked")}
+    />
         </div>
 
 
