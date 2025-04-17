@@ -8,6 +8,11 @@ export default {
         'dark-gray-clr': '#101828',
         'bg-white-clr': '#F5F5F5',
       },
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif'],
+        dancing: ['"Dancing Script"', 'cursive'],
+        great: ['"Great Vibes"', 'cursive'],
+      },
     },
   },
   plugins: [],
