@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { store } from './store/store';
 import Footer from './components/Footer'; // Import the Footer component
 import Featured from './components/home/Featured';
+import Testimonials from './components/home/testimonials';
 
 function App() {
   return (
@@ -12,6 +13,8 @@ function App() {
         <main className="flex-grow">
           {/* Main content */}
           <Featured />
+
+          <Testimonials />
         </main>
 
         {/* Footer */}
