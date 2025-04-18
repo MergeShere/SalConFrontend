@@ -12,6 +12,7 @@ export default {
         poppins: ['Poppins', 'sans-serif'],
         dancing: ['"Dancing Script"', 'cursive'],
         great: ['"Great Vibes"', 'cursive'],
+        delight: ['"Delight Mother"', 'cursive'],
       },
     },
   },
