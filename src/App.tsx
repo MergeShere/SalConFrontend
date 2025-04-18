@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { store } from './store/store';
 import Footer from './components/Footer'; // Import the Footer component
 import Featured from './components/home/Featured';
+import Testimonials from './components/home/testimonials';
 import HeroSection from './components/home/HeroSection';
 
 function App() {
@@ -14,6 +15,8 @@ function App() {
           {/* Main content */}
           <HeroSection/>
           <Featured />
+
+          <Testimonials />
         </main>
 
         {/* Footer */}
