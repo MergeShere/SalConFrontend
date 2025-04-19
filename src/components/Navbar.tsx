@@ -1,5 +1,5 @@
 import { navLinks } from "../lib/data"
-import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import { RiLockUnlockLine } from "react-icons/ri";
 import { motion } from "framer-motion";
 import Button from "./shared/Button"
@@ -10,6 +10,7 @@ import { useState, useEffect } from "react";
 
 function Navbar() {
     const location = useLocation();
+    const navigate = useNavigate();
     const pathname = location.pathname;
     const [showToggle, setShowToggle] = useState(false);
     const [scrolled, setScrolled] = useState(false);
@@ -89,6 +90,7 @@ function Navbar() {
                             <Button 
                                 text="sign in" 
                                 icon={<RiLockUnlockLine/>} 
+                                onClick={() => navigate('/login')}
                                 iconPosition="left" 
                                 className="bg-transparent text-black text-[16px] hover:bg-transparent"
                             />
@@ -141,7 +143,8 @@ function Navbar() {
                         <div className="space-y-5 mt-6">
                             <Button 
                                 text="sign in" 
-                                icon={<RiLockUnlockLine/>} 
+                                icon={<RiLockUnlockLine/>}
+                                onClick={() => navigate('/login')}                                 
                                 iconPosition="left" 
                                 className="bg-transparent text-black text-[20px] hover:bg-transparent"
                             />
