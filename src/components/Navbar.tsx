@@ -102,6 +102,7 @@ function Navbar() {
                                 icon={<ArrowRight/>} 
                                 iconPosition="right" 
                                 className="bg-transparent text-black text-[16px] border-4 border-black hover:bg-transparent"
+                                onClick={() => navigate('/signup')}
                             />
                         </motion.div>
                     </div>
@@ -153,6 +154,7 @@ function Navbar() {
                                 icon={<ArrowRight/>} 
                                 iconPosition="right" 
                                 className="bg-transparent text-black text-[15px] lg:text-[20px] border-4 border-black hover:bg-transparent"
+                                onClick={() => navigate('/signup')}
                             />
                         </div>
                     </div>
