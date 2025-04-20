@@ -61,7 +61,7 @@ const AuthLayout = ({
             className="w-full h-full object-cover"
           />
           
-          {location.pathname === '/login' && (
+          {(location.pathname === '/login' || location.pathname === '/signup') && (
             <div className="absolute bottom-8 right-8">
               <img
                 src="/src/assets/images/salon-tools.svg"
