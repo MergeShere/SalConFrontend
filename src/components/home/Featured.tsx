@@ -8,7 +8,7 @@ const Featured = () => {
     <section className="my-8">
       <div className="custom-container">
         <h1 className="text-center text-text-dark-clr text-3xl font-bold">
-          Featured Hair
+          Featured Hair <i>Styles</i>
         </h1>
 
         <div className="mt-8 grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
