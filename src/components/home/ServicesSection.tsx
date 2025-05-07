@@ -1,11 +1,18 @@
-import React from "react";  
+import React from "react";
 import service_img_1 from '../../assets/images/service-img-1.png';
 import service_img_2 from '../../assets/images/service-img-2.png';
 import service_img_3 from '../../assets/images/service-img-3.png';
 import service_img_4 from '../../assets/images/service-img-4.png';
-import service_img_5 from '../../assets/images/service-img-5.png';
+import service_img_5 from '../../assets/images/service-img-6.svg';
+import service_img_6 from '../../assets/images/service-img-7.svg';
 
-const services = [
+interface Service {
+  title: string;
+  description: string;
+  icon: JSX.Element;
+}
+
+const services: Service[] = [
   {
     title: "Salon Discovery",
     description: "View all salons connected in near you",
@@ -14,23 +21,32 @@ const services = [
   {
     title: "Booking System",
     description: "Schedule appointments with ease",
-    icon: <img src={service_img_2} alt="Salon Discovery Icon" />,
+    icon: <img src={service_img_2} alt="Booking System Icon" />,
   },
   {
     title: "Payment Feature",
     description: "Secure, fast and convenient transactions",
-    icon: <img src={service_img_3} alt="Salon Discovery Icon" />,
+    icon: <img src={service_img_3} alt="Payment Feature Icon" />,
   },
   {
     title: "Multiple Shops & Ratings",
     description: "Compare salons based on services and customer reviews",
-    icon: <img src={service_img_4} alt="Salon Discovery Icon" />,
+    icon: <img src={service_img_4} alt="Multiple Shops & Ratings Icon" />,
   },
 ];
 
-export default function ServicesSection() {
+const ServicesSection: React.FC = () => {
   return (
-    <section className="bg-[#1E1E1E] text-white py-16 px-4 sm:px-8 md:px-16 lg:px-24">
+    <section
+    className="relative bg-[#1E1E1E] text-white py-16 px-4 sm:px-8 md:px-16 lg:px-24"
+    style={{
+      backgroundImage: `url(${service_img_5}), url(${service_img_6})`,
+      backgroundSize: "small, contain", 
+      backgroundPosition: "left bottom, right center", 
+      backgroundRepeat: "no-repeat, no-repeat",
+      backgroundAttachment: "scroll, scroll",
+    }}
+    >
       <div className="text-center mb-12">
         <h2 className="font-poppins text-3xl md:text-4xl font-semibold">
           Providing Customers with <span className="font-dancing italic">Premium</span> Services
@@ -50,4 +66,7 @@ export default function ServicesSection() {
       </div>
     </section>
   );
-}
+};
+
+export default ServicesSection;
+
