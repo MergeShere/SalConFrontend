@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import TestimonialCard from "../shared/TestimonialCard";
+import TestimonialCard from "../shared/testimonialCard";
 
 export default function Testimonials() {
     // Animation variants
