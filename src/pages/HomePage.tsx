@@ -1,7 +1,7 @@
 import Navbar from '../components/Navbar';
 import HeroSection from '../components/home/HeroSection';
 import Featured from '../components/home/Featured';
-import Testimonials from '../components/home/Testimonials';
+import Testimonials from '../components/home/testimonials';
 import Footer from '../components/Footer';
 import { motion } from 'framer-motion';
 
