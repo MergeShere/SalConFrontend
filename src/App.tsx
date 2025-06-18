@@ -1,5 +1,5 @@
 import { Provider } from 'react-redux';
-import { store } from './store/store';
+import { store } from './redux/store.ts';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import ScrollToTop from './components/shared/ScrollToTop.tsx';
 import HomePage from './pages/HomePage.tsx';
