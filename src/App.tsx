@@ -10,10 +10,12 @@ import ForgotPasswordPage from './pages/auth/ForgotPasswordPage.tsx';
 import OtpVerificationPage from './pages/auth/OtpVerificationPage.tsx';
 import SetPasswordPage from './pages/auth/SetPasswordPage.tsx';
 import { AnimatePresence } from 'framer-motion';
+import { Toaster } from 'sonner';
 
 function App() {
   return (
     <Provider store={store}>
+      <Toaster richColors position='top-right'/>
       <AnimatePresence>
         <div className="flex flex-col min-h-screen">
           <Routes>
