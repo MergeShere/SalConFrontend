@@ -112,7 +112,7 @@ function Navbar() {
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                     >
-                        <CgMenuOreos className="text-3xl cursor-pointer" onClick={handleToggleShow}/>
+                        <CgMenuOreos className="text-3xl md:text-4xl cursor-pointer" onClick={handleToggleShow}/>
                     </motion.div>
                 </div>
             </motion.nav>
@@ -120,13 +120,22 @@ function Navbar() {
             {/* Mobile menu */}
             {showToggle && (
                 <motion.div 
-                    className='fixed h-[100vh] bg-[#fff] w-[50%] z-50 top-0 border border-t-0 border-l-0 border-zinc-800'
+                    className='fixed h-[100vh]  bg-[#fff] w-[50%] z-50 top-0 border border-t-0 border-l-0 border-zinc-800'
                     initial={{ x: -300 }}
                     animate={{ x: 0 }}
                     exit={{ x: -300 }}
                     transition={{ type: "spring", stiffness: 400, damping: 40 }}
                 >
-                    <div className='flex flex-col items-center text-[18px] capitalize mt-20'>
+                    <div className="flex items-center justify-center py-5">
+                            <img 
+                                src="/src/assets/images/Salon Connect-02 1.png" 
+                                alt="SalonConnect Logo" 
+                                className="w-20 h-20 object-contain" 
+                            />
+                        </div>
+
+
+                    <div className='flex flex-col items-center text-[18px] capitalize mt-10'>
                         {navLinks.map((item, index) => (
                             <motion.button
                                 onClick={() => scrollToSection(item.href)}
@@ -162,7 +171,7 @@ function Navbar() {
             )}
 
             {/* Empty div to push content down to compensate for fixed navbar */}
-            <div className="h-20"></div>
+            <div className="h-28 md:h-20"></div>
         </div>
     );
 }
