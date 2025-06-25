@@ -32,8 +32,7 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
   const gallery = images || defaultImages;
 
   return (
-    <div className="w-full mx-auto relative">
-      <div className="absolute bottom-0 w-full h-32 bg-red-600"></div>
+    <div className="w-full mx-auto">
       <ImageSlider images={gallery} />
     </div>
   );
