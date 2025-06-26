@@ -3,7 +3,6 @@ import { store } from './store/store';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import ScrollToTop from './components/shared/ScrollToTop.tsx';
 import HomePage from './pages/HomePage.tsx';
-import Dashboard from './components/layouts/DashboardHero.tsx';
 import LoginPage from './pages/auth/LoginPage.tsx';
 import SignupPage from './pages/auth/SignupPage.tsx';
 import SuccessPage from './pages/auth/SuccessPage.tsx';
@@ -26,7 +25,7 @@ function App() {
             <Route path="/auth/set-password" element={<SetPasswordPage />} />
             
             <Route path="/" element={<HomePage />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
 
