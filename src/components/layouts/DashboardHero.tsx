@@ -1,8 +1,17 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Search, ChevronDown, Menu, ArrowRight, Unlock } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X, Home, User, Settings } from 'lucide-react';
 import service_img_5 from '../../assets/images/service-img-6.svg';
 import service_img_6 from '../../assets/images/service-img-7.svg';
+import { SearchContainer } from '../shared/search/SearchContainer';
+
+// Define menu items for the dropdown menu
+const menuItems = [
+  { label: "Home", href: "/", icon: Home },
+  { label: "Profile", href: "/profile", icon: User },
+  { label: "Settings", href: "/settings", icon: Settings },
+];
+
 interface SearchFilters {
   location: string;
   price: string;
@@ -19,49 +28,7 @@ const DashboardHero: React.FC<DashboardHeroProps> = ({
   subtitle = "Discover and book the best beauty services from top rated salons across Ghana",
   onSearch
 }) => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [location, setLocation] = useState('');
-  const [price, setPrice] = useState('');
-  const [isLocationOpen, setIsLocationOpen] = useState(false);
-  const [isPriceOpen, setIsPriceOpen] = useState(false);
-  const [showToggle, setShowToggle] = useState(false);
-
-  const locations = [
-    'Accra', 'Kumasi', 'Tamale', 'Cape Coast', 'Takoradi', 'Ho', 'Koforidua', 'Sunyani'
-  ];
-
-  const priceRanges = [
-    'Under GHS 50', 'GHS 50 - 100', 'GHS 100 - 200', 'GHS 200 - 500', 'Above GHS 500'
-  ];
-
-  const navLinks = [
-    { name: 'Home', href: 'home' },
-    { name: 'Services', href: 'services' },
-    { name: 'About', href: 'about' },
-    { name: 'Contact', href: 'contact' }
-  ];
-
-  const handleSearch = () => {
-    if (onSearch) {
-      onSearch(searchQuery, { location, price });
-    }
-  };
-
-  const handleToggleShow = () => {
-    setShowToggle(prev => !prev);
-  };
-
-  const scrollToSection = (sectionId: string) => {
-    setShowToggle(false);
-    if (sectionId === 'services') {
-      return;
-    }
-    sectionId = sectionId.replace('/', '');
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <div 
@@ -85,27 +52,70 @@ const DashboardHero: React.FC<DashboardHeroProps> = ({
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
+            <div className="flex items-center space-x-3">
+              <img 
+                src="/public/app-logo.png" 
+                alt="Salon Connect" 
+                className="h-20 w-20 rounded-full" 
+              />
+              <span className="text-xl font-bold text-white hidden sm:block">SalonConnect</span>
+            </div>
           </motion.div>
 
           {/* Menu Button */}
           <motion.button
-            onClick={handleToggleShow}
-            className="w-12 h-12 text-black bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20 hover:bg-black/20 transition-all duration-300"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20 hover:bg-white/20 transition-all duration-300"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Menu className="w-5 h-5 text-black" />
+            {isMenuOpen ? (
+              <X className="w-5 h-5 text-white" />
+            ) : (
+              <Menu className="w-5 h-5 text-white" />
+            )}
           </motion.button>
         </div>
+
+        {/* Dropdown Menu */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className="absolute top-full right-6 lg:right-12 mt-2 w-64 bg-white/95 backdrop-blur-lg rounded-2xl shadow-xl border border-white/20 overflow-hidden"
+            >
+              {menuItems.map((item, index) => {
+                const IconComponent = item.icon;
+                return (
+                  <motion.a
+                    key={item.label}
+                    href={item.href}
+                    className="flex items-center space-x-3 px-6 py-4 text-gray-700 hover:bg-white/50 transition-colors border-b border-gray-100 last:border-b-0"
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05 }}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <IconComponent className="w-5 h-5" />
+                    <span className="font-medium">{item.label}</span>
+                  </motion.a>
+                );
+              })}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* Main Content */}
       <div className="relative z-10 max-w-4xl mx-auto text-center">
         {/* Title */}
-        <img src="/src/assets/images/Abstraction.png" alt="Salon Connect Logo" className="h-30 w-20 mx-auto mt-4" />
+        <img src="/src/assets/images/Abstraction.png" alt="Salon Connect Logo" className="h-40 w-40 mx-auto " />
         <motion.h1 
           className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
           initial={{ opacity: 0, y: 30 }}
@@ -125,170 +135,22 @@ const DashboardHero: React.FC<DashboardHeroProps> = ({
           {subtitle}
         </motion.p>
 
-        {/* Search Interface */}
+        {/* Kenneth's Search System - Imported */}
         <motion.div 
-          className="bg-white rounded-full p-1 shadow-2xl max-w-2xl mx-auto"
+          className="max-w-5xl mx-auto w-full"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <div className="flex items-center">
-            {/* Search Input */}
-            <div className="flex-1 px-6 py-4">
-              <input
-                type="text"
-                placeholder="Search for Salon"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full text-gray-800 bg-transparent border-0 outline-none placeholder-gray-500 text-base font-medium"
-              />
-            </div>
-
-            {/* Location Dropdown */}
-            <div className="relative">
-              <button
-                onClick={() => {
-                  setIsLocationOpen(!isLocationOpen);
-                  setIsPriceOpen(false);
-                }}
-                className="flex items-center justify-between px-4 py-4 text-gray-600 hover:text-gray-800 transition-colors border-l border-gray-200 min-w-[120px]"
-              >
-                <span className="text-sm font-medium">
-                  {location || 'Location'}
-                </span>
-                <ChevronDown className={`w-4 h-4 ml-2 transition-transform ${isLocationOpen ? 'rotate-180' : ''}`} />
-              </button>
-
-              {isLocationOpen && (
-                <motion.div 
-                  className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-xl z-50 min-w-[200px]"
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <div className="py-2 max-h-48 overflow-y-auto">
-                    {locations.map((loc) => (
-                      <button
-                        key={loc}
-                        onClick={() => {
-                          setLocation(loc);
-                          setIsLocationOpen(false);
-                        }}
-                        className="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-50 transition-colors text-sm"
-                      >
-                        {loc}
-                      </button>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-            </div>
-
-            {/* Price Dropdown */}
-            <div className="relative">
-              <button
-                onClick={() => {
-                  setIsPriceOpen(!isPriceOpen);
-                  setIsLocationOpen(false);
-                }}
-                className="flex items-center justify-between px-4 py-4 text-gray-600 hover:text-gray-800 transition-colors border-l border-gray-200 min-w-[100px]"
-              >
-                <span className="text-sm font-medium">
-                  {price ? price.split(' ')[0] === 'Under' ? 'Under 50' : price.includes('-') ? price.split(' ')[1] + '-' + price.split(' ')[3] : 'Above 500' : 'Price'}
-                </span>
-                <ChevronDown className={`w-4 h-4 ml-2 transition-transform ${isPriceOpen ? 'rotate-180' : ''}`} />
-              </button>
-
-              {isPriceOpen && (
-                <motion.div 
-                  className="absolute top-full right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-xl z-50 min-w-[180px]"
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <div className="py-2 max-h-48 overflow-y-auto">
-                    {priceRanges.map((range) => (
-                      <button
-                        key={range}
-                        onClick={() => {
-                          setPrice(range);
-                          setIsPriceOpen(false);
-                        }}
-                        className="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-50 transition-colors text-sm"
-                      >
-                        {range}
-                      </button>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-            </div>
-
-            {/* Search Button */}
-            <motion.button
-              onClick={handleSearch}
-              className="bg-black text-white p-4 rounded-full hover:bg-gray-800 transition-colors ml-1 mr-1"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Search className="w-5 h-5" />
-            </motion.button>
-          </div>
+          <SearchContainer onSearch={onSearch} />
         </motion.div>
       </div>
 
-      {/* Mobile Menu */}
-      {showToggle && (
-        <motion.div 
-          className='fixed h-[100vh] bg-[#fff] w-[70%] sm:w-[50%] z-50 top-0 right-0 border border-t-0 border-l-0 border-zinc-800'
-          initial={{ x: 300 }}
-          animate={{ x: 0 }}
-          exit={{ x: 300 }}
-          transition={{ type: "spring", stiffness: 400, damping: 40 }}
-        >
-          <div className='flex flex-col items-center text-[18px] capitalize mt-20'>
-            {navLinks.map((item, index) => (
-              <motion.button
-                onClick={() => scrollToSection(item.href)}
-                className="py-3 px-6 border-zinc-800 first:border-zinc-800 w-full hover:bg-gray-50"
-                key={index}
-                whileHover={{ backgroundColor: "rgba(0,0,0,0.05)" }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {item.name}
-              </motion.button>
-            ))}
-
-            <div className="space-y-5 mt-6">
-              <motion.button 
-                className="flex items-center justify-center space-x-2 bg-transparent text-black text-[20px] hover:bg-transparent py-2 px-4"
-                whileHover={{ scale: 1.05 }}
-              >
-                <Unlock className="w-5 h-5" />
-                <span>sign in</span>
-              </motion.button>
-              
-              <motion.button 
-                className="flex items-center justify-center space-x-2 bg-transparent text-black text-[15px] lg:text-[20px] border-4 border-black hover:bg-transparent py-2 px-4"
-                whileHover={{ scale: 1.05 }}
-              >
-                <span>sign up</span>
-                <ArrowRight className="w-4 h-4" />
-              </motion.button>
-            </div>
-          </div>
-        </motion.div>
-      )}
-
-      {/* Click outside to close dropdowns */}
-      {(isLocationOpen || isPriceOpen || showToggle) && (
+      {/* Click outside to close menu */}
+      {isMenuOpen && (
         <div 
-          className="fixed inset-0 z-40"
-          onClick={() => {
-            setIsLocationOpen(false);
-            setIsPriceOpen(false);
-            setShowToggle(false);
-          }}
+          className="fixed inset-0 z-10"
+          onClick={() => setIsMenuOpen(false)}
         />
       )}
     </div>

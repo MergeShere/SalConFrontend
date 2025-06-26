@@ -3,7 +3,11 @@ import { DesktopLayout } from "./DesktopLayout";
 import { MobileLayout } from "./MobileSearchLayout";
 import {FormData} from '../../../types/search'
 import { locationOptions, priceOptions } from "../../../lib/data";
-import { toast } from "sonner";
+
+// Simple toast replacement (no external dependency)
+const toast = {
+  error: (message: string) => alert(message)
+};
 
 export const SearchContainer: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
@@ -12,8 +16,6 @@ export const SearchContainer: React.FC = () => {
     price: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-
 
   const handleInputChange = (field: keyof FormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));

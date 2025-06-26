@@ -1,8 +1,9 @@
 import { Provider } from 'react-redux';
-import { store } from './store/store';
+import { store } from './redux/store.ts';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import ScrollToTop from './components/shared/ScrollToTop.tsx';
 import HomePage from './pages/HomePage.tsx';
+import DashboardPage from './pages/DashboardPage.tsx';
 import LoginPage from './pages/auth/LoginPage.tsx';
 import SignupPage from './pages/auth/SignupPage.tsx';
 import SuccessPage from './pages/auth/SuccessPage.tsx';
@@ -25,8 +26,9 @@ function App() {
             <Route path="/auth/set-password" element={<SetPasswordPage />} />
             
             <Route path="/" element={<HomePage />} />
-            
+            <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
+            
           </Routes>
 
           <ScrollToTop />

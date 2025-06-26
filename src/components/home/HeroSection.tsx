@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Button from "../shared/Button";
-import { SearchContainer } from "../shared/search/SearchContainer";
+
 
 
 function HeroSection() {
@@ -36,7 +36,7 @@ function HeroSection() {
 
   return (
     <section className="h-screen flex items-center justify-center bg-white">
-      {/* <motion.div 
+      <motion.div 
         className="max-w-[80%] flex flex-col lg:flex-row items-center gap-16 lg:gap-32"
         variants={staggerContainer}
         initial="hidden"
@@ -127,8 +127,8 @@ function HeroSection() {
             <p className="font-delight text-[15px] md:text-[25px] lg:text-2xl capitalize">salon connect</p>
           </motion.div>
         </motion.div>
-      </motion.div> */}
-        <SearchContainer/>
+      </motion.div>
+        
     </section>
   );
 }
