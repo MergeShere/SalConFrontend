@@ -1,14 +1,33 @@
-import React from 'react';
+import { motion } from 'framer-motion';
 import { MapPin, Mail } from 'lucide-react';
 
-const Footer: React.FC = () => {
+const Footer = () => {
+  const linkVariants = {
+    hover: {
+      scale: 1.05,
+      x: 5,
+      transition: { duration: 0.2 }
+    }
+  };
+
+  const iconContainerVariants = {
+    hover: {
+      scale: 1.05,
+      transition: { duration: 0.3 }
+    }
+  };
+
   return (
     <footer className="flex flex-col bg-black text-white w-full">
       {/* Main footer content */}
-      <div className="flex flex-col lg:flex-row justify-between items-start p-4 sm:p-6 lg:p-10 gap-8">
+      <div className="flex flex-col lg:flex-row justify-between items-start p-8 sm:p-10 lg:p-16 gap-8">
         {/* Left side - Logo and tagline */}
         <div className="w-full lg:w-1/2">
-          <div className="flex items-center mb-4">
+          <motion.div 
+            className="flex items-center mb-4"
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          >
             <div className="flex items-center justify-center">
               <img 
                 src="/src/assets/images/Salon Connect-02 1.png" 
@@ -16,42 +35,86 @@ const Footer: React.FC = () => {
                 className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 object-contain" 
               />
             </div>
-          </div>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold max-w-md leading-tight">
+          </motion.div>
+          <motion.h1 
+            className="text-2xl sm:text-3xl md:text-4xl font-bold max-w-md leading-tight"
+            initial={{ opacity: 0.9 }}
+            whileHover={{ opacity: 1, x: 3 }}
+            transition={{ duration: 0.3 }}
+          >
             Straight, wavy, or <br className="hidden sm:block" /> 
             curly, if it's healthy, <br className="hidden sm:block" />
             it's beautiful
-          </h1>
+          </motion.h1>
         </div>
 
         {/* Right side - Contact information */}
         <div className="mt-6 lg:mt-20 flex flex-col space-y-4 sm:space-y-6 w-full lg:w-auto">
-          <div className="flex items-center">
-            <MapPin className="mr-2 flex-shrink-0" size={20} />
+          <motion.div 
+            className="flex items-center"
+            variants={iconContainerVariants}
+            whileHover="hover"
+          >
+            <MapPin className="mr-4 flex-shrink-0" size={20} />
             <span className="text-sm sm:text-base">Accra, Ghana</span>
-          </div>
-          <div className="flex items-center">
-            <Mail className="mr-2 flex-shrink-0" size={20} />
+          </motion.div>
+          <motion.div 
+            className="flex items-center"
+            variants={iconContainerVariants}
+            whileHover="hover"
+          >
+            <Mail className="mr-4 flex-shrink-0" size={20} />
             <span className="text-sm sm:text-base">support@salonconnect</span>
-          </div>
+          </motion.div>
         </div>
       </div>
 
       {/* Bottom navigation and copyright */}
-      <div className="border-t border-gray-600 mt-6 lg:mt-0">
-        <div className="flex flex-col sm:flex-row justify-between items-center p-4 sm:p-6 lg:px-10 lg:py-4">
+      <div className="border-t border-gray-500 mt-6 lg:mt-0">
+        <div className="flex flex-col sm:flex-row justify-between items-center p-6 sm:p-8 lg:px-16 lg:py-6">
           {/* Navigation links */}
-          <nav className="flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-8 mb-4 sm:mb-0 w-full sm:w-auto">
-            <a href="#" className="hover:underline text-sm sm:text-base">Services</a>
-            <a href="#" className="hover:underline text-sm sm:text-base">Features</a>
-            <a href="#" className="hover:underline text-sm sm:text-base">Testimonials</a>
-            <a href="#" className="hover:underline text-sm sm:text-base">Support</a>
+          <nav className="flex flex-wrap justify-center sm:justify-start gap-6 sm:gap-10 mb-4 sm:mb-0 w-full sm:w-auto">
+            <motion.a 
+              href="#" 
+              className="hover:underline text-sm sm:text-base"
+              variants={linkVariants}
+              whileHover="hover"
+            >
+              Services
+            </motion.a>
+            <motion.a 
+              href="#featured" 
+              className="hover:underline text-sm sm:text-base"
+              variants={linkVariants}
+              whileHover="hover"
+            >
+              Features
+            </motion.a>
+            <motion.a 
+              href="#testimonials" 
+              className="hover:underline text-sm sm:text-base"
+              variants={linkVariants}
+              whileHover="hover"
+            >
+              Testimonials
+            </motion.a>
+            <motion.a 
+              href="#" 
+              className="hover:underline text-sm sm:text-base"
+              variants={linkVariants}
+              whileHover="hover"
+            >
+              Support
+            </motion.a>
           </nav>
           
           {/* Copyright text */}
-          <div className="text-xs sm:text-sm mt-2 sm:mt-0">
+          <motion.div 
+            className="text-xs sm:text-sm mt-4 sm:mt-0"
+            whileHover={{ opacity: 0.8 }}
+          >
             © Copyright 2025, All Rights Reserved.
-          </div>
+          </motion.div>
         </div>
       </div>
     </footer>
