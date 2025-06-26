@@ -11,7 +11,7 @@ import OtpVerificationPage from './pages/auth/OtpVerificationPage.tsx';
 import SetPasswordPage from './pages/auth/SetPasswordPage.tsx';
 import { AnimatePresence } from 'framer-motion';
 import SalonDetail from './pages/SalonDetail';
-
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -25,14 +25,11 @@ function App() {
             <Route path="/auth/forgot-password" element={<ForgotPasswordPage />} />
             <Route path="/auth/verify-otp" element={<OtpVerificationPage />} />
             <Route path="/auth/set-password" element={<SetPasswordPage />} />
-              <Route path="/salon/:id" element={<SalonDetail />} />
-            
+            <Route path="/salon/:id" element={<SalonDetail />} />
             <Route path="/" element={<HomePage />} />
-            
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
-
-          <ScrollToTop />
+          <Footer />
         </div>
       </AnimatePresence>
     </Provider>
@@ -40,3 +37,4 @@ function App() {
 }
 
 export default App;
+
