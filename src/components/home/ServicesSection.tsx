@@ -1,4 +1,5 @@
 import React from "react";
+import { ReactNode } from 'react';
 import service_img_1 from '../../assets/images/service-img-1.png';
 import service_img_2 from '../../assets/images/service-img-2.png';
 import service_img_3 from '../../assets/images/service-img-3.png';
@@ -9,7 +10,8 @@ import service_img_6 from '../../assets/images/service-img-7.svg';
 interface Service {
   title: string;
   description: string;
-  icon: JSX.Element;
+  icon: ReactNode;
+
 }
 
 const services: Service[] = [

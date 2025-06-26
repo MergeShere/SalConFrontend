@@ -10,6 +10,8 @@ import ForgotPasswordPage from './pages/auth/ForgotPasswordPage.tsx';
 import OtpVerificationPage from './pages/auth/OtpVerificationPage.tsx';
 import SetPasswordPage from './pages/auth/SetPasswordPage.tsx';
 import { AnimatePresence } from 'framer-motion';
+import SalonDetail from './pages/SalonDetail';
+
 
 function App() {
   return (
@@ -23,6 +25,7 @@ function App() {
             <Route path="/auth/forgot-password" element={<ForgotPasswordPage />} />
             <Route path="/auth/verify-otp" element={<OtpVerificationPage />} />
             <Route path="/auth/set-password" element={<SetPasswordPage />} />
+              <Route path="/salon/:id" element={<SalonDetail />} />
             
             <Route path="/" element={<HomePage />} />
             
