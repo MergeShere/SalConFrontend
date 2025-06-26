@@ -26,8 +26,7 @@ function Navbar() {
 
     function handleToggleShow() {
         setShowToggle((prev) => !prev);
-    }
-
+    } 
     const scrollToSection = (sectionId: string) => {
         setShowToggle(false);
 

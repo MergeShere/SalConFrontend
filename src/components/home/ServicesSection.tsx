@@ -9,7 +9,7 @@ import service_img_6 from '../../assets/images/service-img-7.svg';
 interface Service {
   title: string;
   description: string;
-  icon: JSX.Element;
+icon: React.ReactNode;
 }
 
 const services: Service[] = [
