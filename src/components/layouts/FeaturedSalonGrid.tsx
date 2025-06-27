@@ -194,7 +194,7 @@ const FeaturedSalons = () => {
                   <span className="text-gray-600">({salon.reviews} reviews)</span>
                 </div>
 
-                
+                {/* Location */}
                 <div className="flex items-center text-gray-600 mb-3">
                   <MapPin className="w-4 h-4 mr-2 text-indigo-500" />
                   <span>{salon.location}</span>
