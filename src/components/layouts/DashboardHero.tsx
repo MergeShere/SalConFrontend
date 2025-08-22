@@ -4,6 +4,7 @@ import { Menu, X, Home, User, Settings } from 'lucide-react';
 import service_img_5 from '../../assets/images/service-img-6.svg';
 import service_img_6 from '../../assets/images/service-img-7.svg';
 import { SearchContainer } from '../shared/search/SearchContainer';
+import { Link } from 'react-router-dom';
 
 const menuItems = [
   { label: "Home", href: "/", icon: Home },
@@ -92,9 +93,16 @@ const DashboardHero = ({
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto text-center">
-        <img src="/src/assets/images/Salon Connect-02 1.png" alt="Salon Connect Logo" className="h-20 w-20 mx-auto " />
+        <Link to='/'>
+          <img
+            className="h-20 w-20 mx-auto"
+            src="/src/assets/images/Salon Connect-02 1.png" 
+            alt="Salon Connect Logo" 
+          />
+        </Link>
+
         <motion.h1 
-          className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+          className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 my-4 leading-tight"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
