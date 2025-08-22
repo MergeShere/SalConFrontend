@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Button from "../shared/Button";
-
-
+import { useNavigate } from "react-router-dom";
 
 function HeroSection() {
+  const navigate = useNavigate();
+
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
     visible: { 
@@ -73,7 +74,7 @@ function HeroSection() {
               text="Get Started"
               icon={<ArrowRight className="text-white" size={16} />}
               iconPosition="right"
-              onClick={() => console.log("Button clicked")}
+              onClick={() => navigate("/dashboard")}
             />
           </motion.div>
         </motion.div>
