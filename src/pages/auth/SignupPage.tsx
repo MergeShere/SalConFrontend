@@ -56,7 +56,7 @@ const SignupPage = () => {
       <AuthLayout 
         showBackgroundImage 
         title="Sign up for free"
-        backgroundImage="/src/assets/images/salon-signup.png"
+        backgroundImage="/salon-signup.png"
       >
         <Formik
           initialValues={{

@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import { AuthLayoutProps } from '../../types/auth';
+import forgotPasswordImg from '../../assets/images/forgot-password.svg';
+import loginImg from '../../assets/images/salon-login.svg';
 
 const AuthLayout = ({ 
   children, 
@@ -8,20 +10,15 @@ const AuthLayout = ({
   title,
   showLogo = true,
   centerContent = false,
-  backgroundImage
 }: AuthLayoutProps) => {
   const location = useLocation();
   
   const getBackgroundImage = () => {
-    if (backgroundImage) {
-      return backgroundImage;
-    }
-    
     if (location.pathname.includes('forgot-password')) {
-      return "/src/assets/images/forgot-password.svg";
+      return forgotPasswordImg;
     }
-    
-    return "/src/assets/images/salon-login.svg";
+
+    return loginImg;
   };
 
   return (
@@ -37,7 +34,7 @@ const AuthLayout = ({
             <div className="flex justify-center mb-8">
               <Link to="/">
                 <img 
-                  src="/src/assets/images/Salon Connect-02 1.png" 
+                  src="/SalonConnect-02-1.png" 
                   alt="Salon Connect" 
                   className="h-20" 
                 />
@@ -64,7 +61,7 @@ const AuthLayout = ({
           {(location.pathname === '/login' || location.pathname === '/signup') && (
             <div className="absolute bottom-8 right-8">
               <img
-                src="/src/assets/images/salon-tools.svg"
+                src="/salon-tools.svg"
                 alt="Salon Tools"
                 className="w-32 h-32"
               />

@@ -86,7 +86,7 @@ function HeroSection() {
           transition={{ duration: 0.5, delay: 0.3 }}
         >
           <motion.img
-            src="/src/assets/images/barber-img.png"
+            src="/barber-img.png"
             alt="barber-img"
             className="w-full max-w-[200px] md:max-w-[500px] lg:max-w-[350px] mx-auto"
             whileHover={{ scale: 1.05 }}
@@ -94,7 +94,7 @@ function HeroSection() {
           />
           
           <motion.img
-            src="/src/assets/images/crown.png"
+            src="/crown.png"
             className="absolute top-[10%] right-[10%] md:right-[10%] md:w-20 md:h-20 lg:right-[19%]"
             alt="crown"
             animate={floatingAnimation}
@@ -102,7 +102,7 @@ function HeroSection() {
           
           <motion.img
             className="absolute top-[35%] left-[10%] md:top-[30%] md:w-20 md:h-20 md:left-[15%] lg:left-[20%]"
-            src="/src/assets/images/arrow-curve.png"
+            src="/arrow-curve.png"
             alt="curve-arrow"
             whileHover={{ rotate: 10 }}
             transition={{ duration: 0.5 }}
@@ -110,7 +110,7 @@ function HeroSection() {
 
           <motion.img
             className="absolute top-[40%] -right-[5%] md:right-[5%] md:w-20 md:h-20 lg:right-[10%] lg:w-[80px]"
-            src="/src/assets/images/wriggle-line.png"
+            src="/wriggle-line.png"
             alt="wriggle-line"
             animate={{ 
               rotate: [0, 5, 0, -5, 0],
