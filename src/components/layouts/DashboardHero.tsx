@@ -96,7 +96,7 @@ const DashboardHero = ({
         <Link to='/'>
           <img
             className="h-20 w-20 mx-auto"
-            src="/src/assets/images/SalonConnect-02-1.png" 
+            src="/SalonConnect-02-1.png" 
             alt="Salon Connect Logo" 
           />
         </Link>

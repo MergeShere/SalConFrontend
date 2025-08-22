@@ -61,7 +61,7 @@ function Navbar() {
                             transition={{ type: "spring", stiffness: 400, damping: 10 }}
                         >
                             <img 
-                                src="/src/assets/images/SalonConnect-02-1.png" 
+                                src="/SalonConnect-02-1.png" 
                                 alt="SalonConnect Logo" 
                                 className="w-16 h-16 sm:w-20 sm:h-20 lg:w-20 lg:h-20 object-contain" 
                             />
@@ -94,7 +94,7 @@ function Navbar() {
                                 className="bg-transparent text-black text-[16px] hover:bg-transparent"
                             />
                         </motion.div>
-                        <img src="/src/assets/images/vertical-line.jpg" alt="pad-bar"/>
+                        <img src="/vertical-line.jpg" alt="pad-bar"/>
                         <motion.div whileHover={{ scale: 1.05 }}>
                             <Button 
                                 text="sign up" 
@@ -127,7 +127,7 @@ function Navbar() {
                 >
                     <div className="flex items-center justify-center py-5">
                             <img 
-                                src="/src/assets/images/SalonConnect-02-1.png" 
+                                src="/SalonConnect-02-1.png" 
                                 alt="SalonConnect Logo" 
                                 className="w-20 h-20 object-contain" 
                             />

@@ -37,7 +37,7 @@ const LoginPage = () => {
     <AuthLayout 
       showBackgroundImage 
       title="Sign In to Salon Connect"
-      backgroundImage="/src/assets/images/salon-login.svg"
+      backgroundImage="/salon-login.svg"
     >
       <Formik
         initialValues={{
