@@ -10,7 +10,6 @@ const HomePage = () => {
   return (
     <>
       <Navbar />
-      
       <motion.main 
         className="flex-grow"
         initial={{ opacity: 0 }}
@@ -18,14 +17,10 @@ const HomePage = () => {
         transition={{ duration: 0.5 }}
       >
         <HeroSection />
-
         <ServicesSection/>
-        
         <Featured />
-        
         <Testimonials />
       </motion.main>
-      
       <Footer />
     </>
   );

@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import TestimonialCard from "../shared/testimonialCard";
+import { testimonials } from '../../data/testimonials';
 
 export default function Testimonials() {
-    // Animation variants
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -19,7 +19,7 @@ export default function Testimonials() {
         visible: {
             y: 0,
             opacity: 1,
-            transition: { type: "spring", stiffness: 100 }
+            transition: { type: "spring" as const, stiffness: 100 }
         }
     };
 
@@ -69,20 +69,3 @@ export default function Testimonials() {
         </section>
     );
 }
-
-const testimonials = [
-    {
-        rating: 5,
-        testimony: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae",
-        image: "https://picsum.photos/seed/alfreda/150/150",
-        name: "Alfreda Johnson",
-        role: "Customer",
-    },
-    {
-        rating: 5,
-        testimony: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae",
-        image: "https://picsum.photos/seed/alliana/150/150",
-        name: "Alliana Ibrahim",
-        role: "Customer",
-    },
-];

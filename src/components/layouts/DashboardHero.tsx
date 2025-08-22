@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Home, User, Settings } from 'lucide-react';
 import service_img_5 from '../../assets/images/service-img-6.svg';
 import service_img_6 from '../../assets/images/service-img-7.svg';
 import { SearchContainer } from '../shared/search/SearchContainer';
+import { Link } from 'react-router-dom';
 
-// Define menu items for the dropdown menu
 const menuItems = [
   { label: "Home", href: "/", icon: Home },
   { label: "Profile", href: "/profile", icon: User },
@@ -23,11 +23,11 @@ interface DashboardHeroProps {
   onSearch?: (query: string, filters: SearchFilters) => void;
 }
 
-const DashboardHero: React.FC<DashboardHeroProps> = ({
+const DashboardHero = ({
   title = "Find your Perfect Salon",
   subtitle = "Discover and book the best beauty services from top rated salons across Ghana",
   onSearch
-}) => {
+}: DashboardHeroProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -42,30 +42,11 @@ const DashboardHero: React.FC<DashboardHeroProps> = ({
       }}
     >
 
-      {/* Navigation */}
       <div className="absolute top-0 left-0 right-0 z-20">
         <div className="flex justify-between items-center p-6 lg:px-12">
-          {/* Logo */}
-          <motion.div 
-            className="flex items-center space-x-3"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="flex items-center space-x-3">
-              <img 
-                src="/public/app-logo.png" 
-                alt="Salon Connect" 
-                className="h-20 w-20 rounded-full" 
-              />
-              <span className="text-xl font-bold text-white hidden sm:block">SalonConnect</span>
-            </div>
-          </motion.div>
-
-          {/* Menu Button */}
           <motion.button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20 hover:bg-white/20 transition-all duration-300"
+            className="w-12 h-12 bg-white backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20 hover:bg-white/20 transition-all duration-300 ml-auto"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
@@ -73,14 +54,13 @@ const DashboardHero: React.FC<DashboardHeroProps> = ({
             whileTap={{ scale: 0.95 }}
           >
             {isMenuOpen ? (
-              <X className="w-5 h-5 text-white" />
+              <X className="w-5 h-5 text-black hover:text-white" />
             ) : (
-              <Menu className="w-5 h-5 text-white" />
+              <Menu className="w-5 h-5 text-black hover:text-white" />
             )}
           </motion.button>
         </div>
 
-        {/* Dropdown Menu */}
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
@@ -112,12 +92,17 @@ const DashboardHero: React.FC<DashboardHeroProps> = ({
         </AnimatePresence>
       </div>
 
-      {/* Main Content */}
       <div className="relative z-10 max-w-4xl mx-auto text-center">
-        {/* Title */}
-        <img src="/src/assets/images/Abstraction.png" alt="Salon Connect Logo" className="h-40 w-40 mx-auto " />
+        <Link to='/'>
+          <img
+            className="h-20 w-20 mx-auto"
+            src="/src/assets/images/Salon Connect-02 1.png" 
+            alt="Salon Connect Logo" 
+          />
+        </Link>
+
         <motion.h1 
-          className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+          className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-12 my-4 leading-tight"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -125,7 +110,6 @@ const DashboardHero: React.FC<DashboardHeroProps> = ({
           {title}
         </motion.h1>
 
-        {/* Subtitle */}
         <motion.p 
           className="text-lg sm:text-xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed"
           initial={{ opacity: 0, y: 30 }}
@@ -135,7 +119,6 @@ const DashboardHero: React.FC<DashboardHeroProps> = ({
           {subtitle}
         </motion.p>
 
-        {/* Kenneth's Search System - Imported */}
         <motion.div 
           className="max-w-5xl mx-auto w-full"
           initial={{ opacity: 0, y: 30 }}
@@ -146,7 +129,6 @@ const DashboardHero: React.FC<DashboardHeroProps> = ({
         </motion.div>
       </div>
 
-      {/* Click outside to close menu */}
       {isMenuOpen && (
         <div 
           className="fixed inset-0 z-10"
