@@ -37,7 +37,7 @@ const AuthLayout = ({
             <div className="flex justify-center mb-8">
               <Link to="/">
                 <img 
-                  src="/src/assets/images/Salon Connect-02 1.png" 
+                  src="/src/assets/images/SalonConnect-02-1.png" 
                   alt="Salon Connect" 
                   className="h-20" 
                 />
