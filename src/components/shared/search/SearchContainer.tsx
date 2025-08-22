@@ -1,15 +1,18 @@
 import { useState } from "react";
 import { DesktopLayout } from "./DesktopLayout";
 import { MobileLayout } from "./MobileSearchLayout";
-import {FormData} from '../../../types/search'
+import { FormData } from '../../../types/search';
 import { locationOptions, priceOptions } from "../../../lib/data";
 
-// Simple toast replacement (no external dependency)
 const toast = {
   error: (message: string) => alert(message)
 };
 
-export const SearchContainer: React.FC = () => {
+interface SearchContainerProps {
+  onSearch?: (query: string, filters: Omit<FormData, "query">) => void;
+}
+
+export const SearchContainer: React.FC<SearchContainerProps> = ({ onSearch }) => {
   const [formData, setFormData] = useState<FormData>({
     query: '',
     location: '',
@@ -26,10 +29,12 @@ export const SearchContainer: React.FC = () => {
       toast.error('Search characters must be atleast 3');
       return;
     }
-    
+
     setIsSubmitting(true);
     console.log('Search values:', formData);
-  
+
+    onSearch?.(formData.query, { location: formData.location, price: formData.price });
+
     setTimeout(() => {
       setIsSubmitting(false);
     }, 1000);
@@ -46,7 +51,7 @@ export const SearchContainer: React.FC = () => {
           locationOptions={locationOptions}
           priceOptions={priceOptions}
         />
-        
+
         <DesktopLayout
           formData={formData}
           onInputChange={handleInputChange}
