@@ -13,6 +13,8 @@ export default {
         dancing: ['"Dancing Script"', 'cursive'],
         great: ['"Great Vibes"', 'cursive'],
         delight: ['"Delight Mother"', 'cursive'],
+        jarkataLight:['"Jakarta light"','sans-serif'],
+        jarkataBold:['"Jakarta bold"','sans-serif'],
       },
     },
   },
