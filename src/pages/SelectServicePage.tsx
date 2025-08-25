@@ -1,9 +1,11 @@
 import HairPricing from "../components/bookings/HairPricing"
 import PaymentInformation from "../components/bookings/PaymentInformation"
+import ServiceModal from "../components/bookings/ServiceModal" // Add this import
 
 function SelectServicePage() {
   return (
     <div className="custom-container py-5 px-4 sm:px-6 lg:px-8 lg:py-10">
+       <div>
         <div>
             <h3 className='text-[#52525B] text-sm capitalize font-jarkataLight'>product-Stone Ocean Salon-services</h3>
 
@@ -27,6 +29,9 @@ function SelectServicePage() {
                 </div>
             </div>
         </div>
+      
+        <ServiceModal />
+       </div>
   )
 }
 
