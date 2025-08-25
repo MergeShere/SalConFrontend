@@ -12,6 +12,7 @@ import ForgotPasswordPage from './pages/auth/ForgotPasswordPage.tsx';
 import OtpVerificationPage from './pages/auth/OtpVerificationPage.tsx';
 import SetPasswordPage from './pages/auth/SetPasswordPage.tsx';
 import { AnimatePresence } from 'framer-motion';
+import SelectServicePage from './pages/SelectServicePage.tsx';
 
 function App() {
   return (
@@ -25,7 +26,9 @@ function App() {
             <Route path="/auth/forgot-password" element={<ForgotPasswordPage />} />
             <Route path="/auth/verify-otp" element={<OtpVerificationPage />} />
             <Route path="/auth/set-password" element={<SetPasswordPage />} />
-            
+
+            <Route path="/select-service" element={<SelectServicePage />} />
+    
             <Route path="/" element={<HomePage />} />
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/salon/:salonId" element={<SalonDetails />} />
