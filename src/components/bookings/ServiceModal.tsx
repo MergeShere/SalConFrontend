@@ -48,7 +48,7 @@ return (
           <Button 
             text="add to cart"
             onClick={handleAddToCart}
-            className="flex-1 bg-black text-sm whitespace-nowrap lg:text-2xl text-center justify-center text-white hover:bg-gray-800"
+            className="flex-1 bg-black  whitespace-nowrap  text-center justify-center text-white hover:bg-gray-800"
           />
         </div>
       </div>
