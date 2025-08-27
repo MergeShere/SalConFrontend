@@ -38,7 +38,7 @@ function Button({
       type={type}
       onClick={onClick}
       className={cn(
-        "bg-black text-white px-6 py-3 rounded-md hover:bg-gray-800 transition-all capitalize flex items-center gap-2",
+        "bg-black text-white  px-6 py-3 rounded-md hover:bg-gray-800 transition-all capitalize flex items-center gap-2",
         className
       )}
       variants={buttonVariants}
