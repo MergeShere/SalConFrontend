@@ -4,11 +4,12 @@ import { ReactNode } from "react";
 
 type ButtonProps = {
   text: string;
-  icon?: ReactNode; 
-  iconPosition?: "left" | "right"; 
+  icon?: ReactNode;
+  iconPosition?: "left" | "right";
   onClick?: () => void;
   type?: "button" | "submit" | "reset";
   className?: string;
+  disabled?: boolean;
 };
 
 function Button({
@@ -18,6 +19,7 @@ function Button({
   onClick,
   type = "button",
   className,
+  disabled = false,
 }: ButtonProps) {
   const iconVariants = {
     initial: { x: 0 },
@@ -37,14 +39,16 @@ function Button({
     <motion.button
       type={type}
       onClick={onClick}
+      disabled={disabled}
       className={cn(
         "bg-black text-white  px-6 py-3 rounded-md hover:bg-gray-800 transition-all capitalize flex items-center gap-2",
-        className
+        className,
+        disabled && "opacity-50 cursor-not-allowed"
       )}
       variants={buttonVariants}
       initial="initial"
-      whileHover="hover"
-      whileTap="tap"
+      whileHover={!disabled ? "hover" : undefined}
+      whileTap={!disabled ? "tap" : undefined}
       transition={{ duration: 0.2 }}
     >
       {iconPosition === "left" && icon && (
