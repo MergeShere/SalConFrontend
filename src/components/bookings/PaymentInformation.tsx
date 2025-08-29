@@ -8,9 +8,10 @@ interface PaymentInformationProps {
   buttonText?: string;
   onContinue?: () => void;
   disabled?: boolean;
+  date?: string;
 }
 
-function PaymentInformation({ buttonText = "continue", onContinue, disabled }: PaymentInformationProps) {
+function PaymentInformation({ buttonText = "continue", onContinue, disabled, date }: PaymentInformationProps) {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { selectedServices, subtotal, tax, total } = useAppSelector(state => state.selection);
@@ -51,11 +52,13 @@ function PaymentInformation({ buttonText = "continue", onContinue, disabled }: P
                   <div key={service.id} className="flex items-center justify-between group">
                     <div>
                       <p className="font-jarkataLight">{service.name}</p>
-                      <p className="text-[12px] text-[#3F3F46]">{service.duration}</p>
+                      {date && (
+                        <p className="text-[12px] text-[#3F3F46]">{date}</p>
+                      )}
                     </div>
                     <div className="flex items-center gap-2">
                       <p className="font-jarkataBold">GHS {service.price}</p>
-                      <button 
+                      <button
                         onClick={() => handleRemoveService(service.id)}
                         className="text-red-500 opacity-0 group-hover:opacity-100 transition-opacity text-sm hover:text-red-700"
                       >
@@ -64,6 +67,15 @@ function PaymentInformation({ buttonText = "continue", onContinue, disabled }: P
                     </div>
                   </div>
                 ))}
+                
+                {date && (
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="font-jarkataLight">Date</p>
+                      <p className="text-[12px] text-[#3F3F46]">{date}</p>
+                    </div>
+                  </div>
+                )}
               </div>
               <div className="mt-4 bg-[#ccc] h-[1px] w-full"/>
             </>
