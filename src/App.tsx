@@ -14,6 +14,8 @@ import SetPasswordPage from "./pages/auth/SetPasswordPage.tsx";
 import { AnimatePresence } from "framer-motion";
 import SelectServicePage from "./pages/SelectServicePage.tsx";
 import PaymentCardPage from "./pages/PaymentCardPage.tsx";
+import CardPage from "./pages/PaymentCard.tsx";
+import MobileMoneyPage from "./pages/MobileMoneyPage.tsx";
 
 function App() {
   return (
@@ -32,7 +34,9 @@ function App() {
             <Route path="/auth/set-password" element={<SetPasswordPage />} />
 
             <Route path="/select-service" element={<SelectServicePage />} />
-            <Route path="/payment" element={<PaymentCardPage />} />
+            <Route path="/Payment" element={<PaymentCardPage />} />
+            <Route path="/Payment/Card" element={<CardPage />} />
+            <Route path="/Mobile-Money" element={<MobileMoneyPage />} />
 
             <Route path="/" element={<HomePage />} />
             <Route path="/dashboard" element={<DashboardPage />} />

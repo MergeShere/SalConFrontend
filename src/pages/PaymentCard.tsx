@@ -47,7 +47,7 @@ const PaymentCardPage = () => {
         {/* Breadcrumb */}
         <nav className="text-sm text-gray-500 mb-6">
           Product - Stone Ocean Salon - Services - Time -{" "}
-          <span className="text-gray-900 font-medium">Payment</span>
+          <span className="text-gray-900 font-medium">Payment - Card</span>
         </nav>
 
         {/* Title */}
@@ -70,7 +70,7 @@ const PaymentCardPage = () => {
                 name="cardNumber"
                 value={cardDetails.cardNumber}
                 onChange={handleInputChange}
-                placeholder="XXXX XXXX XXXX XXXX"
+                placeholder="1234567890123456"
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
               />
             </div>
@@ -85,7 +85,7 @@ const PaymentCardPage = () => {
                 name="nameOnCard"
                 value={cardDetails.nameOnCard}
                 onChange={handleInputChange}
-                placeholder="ex: John Doe"
+                placeholder="User Name"
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
               />
             </div>
@@ -101,7 +101,7 @@ const PaymentCardPage = () => {
                   name="expiryDate"
                   value={cardDetails.expiryDate}
                   onChange={handleInputChange}
-                  placeholder="MM/YYYY"
+                  placeholder="06/26"
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                 />
               </div>
@@ -114,7 +114,7 @@ const PaymentCardPage = () => {
                   name="cvv"
                   value={cardDetails.cvv}
                   onChange={handleInputChange}
-                  placeholder="XXX"
+                  placeholder="123"
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                 />
               </div>
@@ -177,8 +177,8 @@ const PaymentCardPage = () => {
               {/* Continue Button inside Booking Details */}
               <button
                 type="button"
-                disabled
-                className="w-full h-14 mt-32 rounded-md bg-[#EAEAEA] text-gray-400 font-medium cursor-not-allowed"
+                disabled={true}
+                className="w-full h-14 mt-32 rounded-md bg-black text-white font-medium cursor-not-allowed"
                 style={{ fontFamily: "Plus Jakarta Sans, sans-serif" }}
               >
                 Continue

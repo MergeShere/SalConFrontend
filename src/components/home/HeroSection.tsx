@@ -123,7 +123,7 @@ function HeroSection() {
             animate={{ 
               x: [0, 10, 0],
               transition: { duration: 3, repeat: Infinity }
-            }}typescript-eslint
+            }}
           >
             <p className="font-delight text-[15px] md:text-[25px] lg:text-2xl capitalize">salon connect</p>
           </motion.div>
