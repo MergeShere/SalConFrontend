@@ -1,4 +1,6 @@
 import { Star, MapPin, Heart } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+
 
 interface Salon {
   id: string;
@@ -16,6 +18,11 @@ interface DetailedPageGalleryProps {
 }
 
 const DetailedPageGallery = ({ salon }: DetailedPageGalleryProps) => {
+  const navigate = useNavigate(); // Move this to the top level of the component
+
+  const handleBookClick = () => {
+    navigate("/select-service");
+  };
 
   return (
     <div className="bg-white p-0 h-fit">
@@ -86,8 +93,9 @@ const DetailedPageGallery = ({ salon }: DetailedPageGalleryProps) => {
       </div>
 
       <div className="flex gap-4">
-        <button
-          className="flex-1 bg-gray-900 text-white py-3 px-6 rounded-md font-semibold hover:bg-gray-800 transition-colors duration-200"
+        <button 
+          onClick={handleBookClick}
+          className="flex-1 bg-gray-900 text-white py-3 px-6 rounded-md font-semibold hover:bg-gray-800 transition-colors duration-200" 
         >
           Book
         </button>
