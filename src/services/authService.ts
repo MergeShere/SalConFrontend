@@ -26,7 +26,8 @@ export interface AuthResponse {
 
 export const authService = {
   login: async (credentials: LoginPayload) => {
-    const response = await api.post<AuthResponse>('/auth/login', credentials);
+    // UPDATED PATH: /api/users/login
+    const response = await api.post<AuthResponse>('/api/users/login', credentials);
     if (response.data.token) {
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('user', JSON.stringify(response.data.user));
@@ -35,7 +36,8 @@ export const authService = {
   },
 
   register: async (data: RegisterPayload) => {
-    const response = await api.post<AuthResponse>('/auth/signup', data);
+    // UPDATED PATH: /api/users/register
+    const response = await api.post<AuthResponse>('/api/users/register', data);
     if (response.data.token) {
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('user', JSON.stringify(response.data.user));
@@ -43,13 +45,21 @@ export const authService = {
     return response.data;
   },
 
-  logout: () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
+  logout: async () => {
+    // UPDATED PATH: /api/users/logout
+    try {
+        await api.post('/api/users/logout');
+    } catch (error) {
+        console.error("Logout failed on server", error);
+    } finally {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+    }
   },
   
   getCurrentUser: async () => {
-      const response = await api.get('/users/me');
+      // UPDATED PATH: /api/users/me
+      const response = await api.get('/api/users/me');
       return response.data;
   }
 };

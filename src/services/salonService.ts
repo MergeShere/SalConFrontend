@@ -12,27 +12,30 @@ export interface Salon {
 
 export const salonService = {
   getAllSalons: async (params?: any) => {
-    const response = await api.get('/salons', { params });
+    // UPDATED: /api/salons/
+    const response = await api.get('/api/salons/', { params });
     return response.data;
   },
 
   getSalonById: async (id: string) => {
-    const response = await api.get(`/salons/${id}`);
+    // UPDATED: /api/salons/{salon_id}
+    const response = await api.get(`/api/salons/${id}`);
     return response.data;
   },
 
   createSalon: async (data: any) => {
-    const response = await api.post('/salons', data);
+    // Only found vendor specific endpoints like /api/vendor/salons
+    const response = await api.post('/api/vendor/salons', data);
     return response.data;
   },
   
   updateSalon: async (id: string, data: any) => {
-    const response = await api.put(`/salons/${id}`, data);
+    const response = await api.put(`/api/vendor/salons/${id}`, data);
     return response.data;
   },
   
   deleteSalon: async (id: string) => {
-    const response = await api.delete(`/salons/${id}`);
+    const response = await api.delete(`/api/vendor/salons/${id}`);
     return response.data;
   }
 };

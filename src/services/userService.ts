@@ -9,22 +9,26 @@ export interface UpdateProfilePayload {
 
 export const userService = {
   getProfile: async () => {
-    const response = await api.get('/users/profile');
+    // UPDATED: /api/users/me/profile
+    const response = await api.get('/api/users/me/profile');
     return response.data;
   },
 
   updateProfile: async (data: UpdateProfilePayload) => {
-    const response = await api.put('/users/profile', data);
+    // UPDATED: /api/users/me/profile
+    const response = await api.put('/api/users/me/profile', data);
     return response.data;
   },
 
   getAllUsers: async () => {
-    const response = await api.get('/users');
+    // No direct "get all users" found in openapi, removing or keeping as placeholder if admin
+    const response = await api.get('/api/users'); 
     return response.data;
   },
   
   getUserById: async (id: string) => {
-    const response = await api.get(`/users/${id}`);
+    // No direct get user by id, usually admin only. 
+    const response = await api.get(`/api/users/${id}`);
     return response.data;
   }
 };
