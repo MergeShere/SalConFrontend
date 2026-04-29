@@ -10,7 +10,9 @@ const initialState:ServiceSelectionState= {
     tax: 0,
     total: 0,
     isModalOpen: false,
-    selectedServiceForModal: null
+    selectedServiceForModal: null,
+    bookingDate: null,
+    bookingTime: null
 }
 
 
@@ -62,6 +64,11 @@ const serviceSelectionSlice = createSlice({
             state.total = 0;
         },
 
+        setBookingInfo: (state, action: PayloadAction<{ date: Date; time: string }>) => {
+            state.bookingDate = action.payload.date;
+            state.bookingTime = action.payload.time;
+        },
+
         calculateTotals: (state) => {
             // Fixed: service.price instead of serviceSelectionSlice.price
             state.subtotal = state.selectedServices.reduce((total, service) => total + service.price, 0);
@@ -77,6 +84,7 @@ export const {
     addServiceToCart,
     removeService,
     clearServices,
+    setBookingInfo,
     calculateTotals
 } = serviceSelectionSlice.actions;
 

@@ -15,4 +15,6 @@ export interface ServiceSelectionState {
   total: number;
   isModalOpen: boolean;
   selectedServiceForModal: HairServiceProps | null;
+  bookingDate: Date | null;
+  bookingTime: string | null;
 }

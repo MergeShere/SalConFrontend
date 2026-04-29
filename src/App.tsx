@@ -13,9 +13,11 @@ import OtpVerificationPage from "./pages/auth/OtpVerificationPage.tsx";
 import SetPasswordPage from "./pages/auth/SetPasswordPage.tsx";
 import { AnimatePresence } from "framer-motion";
 import SelectServicePage from "./pages/SelectServicePage.tsx";
-import PaymentCardPage from "./pages/PaymentCardPage.tsx";
-import CardPage from "./pages/PaymentCard.tsx";
-import MobileMoneyPage from "./pages/MobileMoneyPage.tsx";
+import SelectTimePage from "./pages/SelectTimePage.tsx";
+import SelectPaymentPage from "./pages/SelectPaymentPage.tsx";
+import SelectCardPage from "./pages/SelectCardPage.tsx";
+import SelectMomoPage from "./pages/SelectMomoPage.tsx";
+import BookingSuccessPage from "./pages/BookingSucess.tsx";
 
 function App() {
   return (
@@ -34,13 +36,15 @@ function App() {
             <Route path="/auth/set-password" element={<SetPasswordPage />} />
 
             <Route path="/select-service" element={<SelectServicePage />} />
-            <Route path="/Payment" element={<PaymentCardPage />} />
-            <Route path="/Payment/Card" element={<CardPage />} />
-            <Route path="/Mobile-Money" element={<MobileMoneyPage />} />
+            <Route path="/select-time" element={<SelectTimePage />} />
+            <Route path="/payment" element={<SelectPaymentPage />} />
+            <Route path="/payment/card" element={<SelectCardPage />} />
+            <Route path="/payment/mobile-money" element={<SelectMomoPage />} />
 
             <Route path="/" element={<HomePage />} />
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/salon/:salonId" element={<SalonDetails />} />
+            <Route path="/booking-success" element={<BookingSuccessPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
 
