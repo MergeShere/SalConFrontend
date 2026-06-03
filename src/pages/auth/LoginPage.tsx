@@ -25,7 +25,7 @@ const LoginPage = () => {
       setIsLoading(true);
       console.log('Login values:', values);
       await new Promise(resolve => setTimeout(resolve, 1000));
-      navigate('/');
+      navigate('/dashboard');
     } catch (error) {
       console.error('Login error:', error);
     } finally {

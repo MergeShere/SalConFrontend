@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import PaymentInformation from '../components/bookings/PaymentInformation';
 
 function CardPaymentPage() {
+  const navigate = useNavigate();
   const [cardNumber, setCardNumber] = useState<string>('');
   const [nameOnCard, setNameOnCard] = useState<string>('');
   const [expiryDate, setExpiryDate] = useState<string>('');
@@ -56,6 +58,7 @@ function CardPaymentPage() {
         expiryDate,
         cvv
       });
+      navigate('/booking-success');
     }
   };
 
