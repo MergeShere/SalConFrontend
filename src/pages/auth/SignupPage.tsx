@@ -38,7 +38,7 @@ const SignupPage = () => {
       setIsLoading(true);
       console.log('Signup values:', values);
       await new Promise(resolve => setTimeout(resolve, 1000));
-      navigate('/');
+      navigate('/dashboard');
     } catch (error) {
       console.error('Signup error:', error);
     } finally {
